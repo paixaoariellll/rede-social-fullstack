@@ -1,6 +1,6 @@
-import Image from 'next/image'
-import React from 'react'
-import { FcSearch } from 'react-icons/fc'
+import Image from 'next/image';
+import React from 'react';
+import { FcSearch } from 'react-icons/fc';
 import styled from 'styled-components';
 import CottageIcon from '@mui/icons-material/Cottage';
 import AppsIcon from '@mui/icons-material/Apps';
@@ -11,13 +11,13 @@ import {
     PlayIcon,
     ShoppingCartIcon,
     UserGroupIcon,
-} from "@heroicons/react/24/outline"
-import HeaderIcon from "./HeaderIcons"
+} from "@heroicons/react/24/outline";
+import HeaderIcon from "./HeaderIcons";
 import { Avatar } from '@mui/material';
 
 export default function HeaderScreen() {
     return (
-        <div className="sticky top-0 z-50 h-14 bg-white flex p-2 lg:px-5 shadow-md items-center ">
+        <div className="flex sticky top-0 z-50 h-14 bg-white p-2 lg:px-5 shadow-md items-center">
             <div className='flex items-center'>
                 <Image src="https://links.papareact.com/5me" width={40} height={40} alt="logo" unoptmized layout='fixed' />
                 <div className='flex bg-slate-200 ml-2 mr-10 items-center rounded-full'>
@@ -31,7 +31,7 @@ export default function HeaderScreen() {
             </div>
 
             {/* centro */}
-            <div className='flex gap-x-5 items-center'>
+            <div className='flex gap-x-5 '>
                 <div className="flex gap-x-5 ">
                     <HeaderIcon active Icon={CottageIcon} />
                     <HeaderIcon Icon={FlagIcon} />
@@ -55,6 +55,7 @@ export default function HeaderScreen() {
 
 const Direita = styled.div`
     display: flex;
+    justify-content: end;
     align-items: center;
     width: 100%;
     height:80px;
