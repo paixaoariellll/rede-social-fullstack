@@ -2,11 +2,12 @@ import { getSession } from 'next-auth/react'
 import Head from 'next/head'
 import HeaderScreen from '../components/Header'
 import LoginScreen from '../components/Login'
+import Sidebar from '../components/Sidebar'
 
 export default function Home({ session }) {
-  if (!session) return <LoginScreen />
+  /* if (!session) return <LoginScreen /> */
   return (
-    <div >
+    <div className='h-screen bg-gray-100 overflow-hidden' >
       <Head>
         <title>Fatecanos</title>
       </Head>
@@ -15,8 +16,8 @@ export default function Home({ session }) {
       {/* chat */}
       {/* login */}
 
-      <main>
-        {/* SideBar */}
+      <main className='flex'>
+        <Sidebar />
         {/* NavBar */}
         {/* children */}
         {/* widgets */}
