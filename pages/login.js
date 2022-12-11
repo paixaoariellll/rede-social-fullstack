@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 import { useForm } from 'react-hook-form';
 import Layout from '../components/Layout';
 import PasswordInput from '../components/PasswordInput';
+import { useSession, signIn, signOut } from "next-auth/react";
 
 function Login() {
     const [email, setEmail] = useState();
@@ -13,6 +14,10 @@ function Login() {
         formState: { errors }
     } = useForm()
 
+    /*  Google Handler Function */
+    async function handleGoogleSgnin() {
+        signIn("google", { callbackUrl: 'http://localhost:3000' })
+    }
     return (
         <Layout title='Entrar'>
             <section className="flex justify-center mb-5 md:h-screen">
@@ -34,7 +39,7 @@ function Login() {
                                                     Conecte-se com:
                                                     <ul className='flex gap-x-4'>
                                                         <li className='input-button'>
-                                                            <button type='submit' className='bg-orange-600 p-2 rounded-xl hover:bg-orange-700 text-white'>Google</button>
+                                                            <button type='button' onClick={handleGoogleSgnin} className='bg-orange-600 p-2 rounded-xl hover:bg-orange-700 text-white'>Google</button>
                                                         </li>
                                                         <li className='input-button'>
                                                             <button type='submit' className='bg-blue-600 p-2 rounded-xl hover:bg-blue-700 text-white'>GitHub</button>

@@ -1,10 +1,10 @@
-import { useState } from "react";
+import { useSession } from "next-auth/react";
 import Hero from "../components/hero";
 import Layout from "../components/Layout";
 import User from "../components/User";
 
 export default function Home() {
-  const [session, setSession] = useState(false);
+  const { data: session } = useSession()
 
   return (
     <Layout title="Home">
