@@ -14,9 +14,10 @@ function Login() {
     const {
         handleSubmit,
         register,
-        formState: { errors }
+        formState: { errors },
     } = useForm()
     const submitHandler = ({ email, password }) => {
+        console.log(email, password)
     }
 
     /*  Google Handler Function */
@@ -62,7 +63,8 @@ function Login() {
                                                 <p className="mb-4">Por favor, entre com sua conta</p>
                                                 <div className="mb-4">
                                                     <input
-                                                        id="email"
+                                                        id='email'
+                                                        autoFocus
                                                         type="email"
                                                         {...register("email", {
                                                             required: "Por favor, digite o seu e-mail.",
@@ -80,15 +82,14 @@ function Login() {
                                                 <PasswordInput
                                                     placeholder='Senha'
                                                     id="password"
-                                                    name='password'
+                                                    type='password'
                                                     {...register("password", {
-                                                        required: "Por favor, digite a sua senha.",
+                                                        required: "Por favor, digite a sua senha."
                                                     })}
                                                 />{errors.password && (<div className='text-red-500'>{errors.password.message}</div>)}
                                                 <div className="text-center pt-1 mb-12 pb-1">
                                                     <button
                                                         className="inline-block px-6 bg-red-500 py-2.5 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-red-700 hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out w-full mb-3"
-                                                        type="submit"
                                                     >
                                                         Login
                                                     </button>
