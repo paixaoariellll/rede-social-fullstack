@@ -1,4 +1,4 @@
-import { useSession } from "next-auth/react";
+import { getSession, useSession } from "next-auth/react";
 import Hero from "../components/hero";
 import Layout from "../components/Layout";
 import User from "../components/User";
@@ -13,3 +13,17 @@ export default function Home() {
   )
 }
 
+export async function getServerSideProps({ req }) {
+  const session = await getSession({ req })
+  if (!session) {
+    return {
+      redirect: {
+        destination: '/login',
+        permanent: false,
+      }
+    }
+  }
+  return {
+    props: { session }
+  }
+}

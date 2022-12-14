@@ -1,8 +1,11 @@
-import { useSession } from 'next-auth/react'
+import { signOut, useSession } from 'next-auth/react'
 import React from 'react'
 
 function User() {
     const { data: session } = useSession()
+    function handleSignOut() {
+        signOut()
+    }
     return (
         <>
             <h1 className='text-4xl'>Informações do usuário</h1>
@@ -11,7 +14,7 @@ function User() {
                 <h1>Email: {session.user.email}</h1>
             </div>
             <div className='flex justify-center'>
-                <button>Sair</button>
+                <button onClick={handleSignOut}>Sair</button>
             </div>
             <div>
                 ver perfil
@@ -21,3 +24,4 @@ function User() {
 }
 
 export default User
+
